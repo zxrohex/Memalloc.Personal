@@ -12,6 +12,15 @@
 	top: calcCenter($height, 0);
 }
 
+@mixin scrollVars() {
+	&.scroll-vars {
+		--scroll: 0;
+		--scroll-deg: 0deg;
+		--scroll-max: 100;
+		--scroll-percentage: calc(var(--scroll) / var(--scroll-max) * 100%);
+
+	}
+}
 
 * {
 	box-sizing: border-box;
@@ -35,6 +44,8 @@ div.showcase {
 	position: relative;
 
 	width: 100%;
+
+	@include scrollVars();
 
 	&.vh-50 {
 		height: 50vh;
@@ -141,6 +152,9 @@ div.showcase {
 	height: $size;
 
 	transform-style: preserve-3d;
+
+	//noinspection CssInvalidFunction
+	transform: rotate3d(1, 1, 1, calc(var(--scroll-deg) * 100)); // webstorm thinks the calc function is invalid, but it's not
 
 	div.cube-face {
 		position: absolute;

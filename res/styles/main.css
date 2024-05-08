@@ -18,6 +18,12 @@ div.showcase {
   position: relative;
   width: 100%;
 }
+div.showcase.scroll-vars {
+  --scroll: 0;
+  --scroll-deg: 0deg;
+  --scroll-max: 100;
+  --scroll-percentage: calc(var(--scroll) / var(--scroll-max) * 100%);
+}
 div.showcase.vh-50 {
   height: 50vh;
 }
@@ -111,6 +117,8 @@ div.cube-3d-object {
   height: 200px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  -webkit-transform: rotate3d(1, 1, 1, calc(var(--scroll-deg) * 100));
+          transform: rotate3d(1, 1, 1, calc(var(--scroll-deg) * 100));
 }
 div.cube-3d-object div.cube-face {
   position: absolute;
