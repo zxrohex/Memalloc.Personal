@@ -1,0 +1,266 @@
+@import url("https://use.typekit.net/vhq2ovc.css");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "myriad-pro", sans-serif;
+}
+
+html, body, main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0px;
+  background-color: rgb(10, 10, 10);
+  color: white;
+}
+
+div.showcase {
+  position: relative;
+  width: 100%;
+}
+div.showcase.vh-50 {
+  height: 50vh;
+}
+div.showcase.vh-100 {
+  height: 100vh;
+}
+div.showcase.vh-200 {
+  height: 200vh;
+}
+div.showcase div.showcase-scene {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+div.showcase div.showcase-content {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+div.showcase div.showcase-content div.showcase-content-inner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+div.showcase-stack {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+div.showcase-stack div.stack-object {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  border-radius: 24px;
+  -webkit-filter: drop-shadow(0px 0px 16px rgba(25, 25, 25, 0.45));
+          filter: drop-shadow(0px 0px 16px rgba(25, 25, 25, 0.45));
+  /*&.backdrop-1 {
+  	background-image: linear-gradient(45deg, #EF233C, #D80032)
+  }
+
+  &.backdrop-2 {
+  	background-image: linear-gradient(45deg, #fb5607, #ffbe0b);
+  }*/
+}
+div.showcase-stack div.stack-object:nth-child(1) {
+  background-image: linear-gradient(45deg, #fb5607, #fbe301);
+  -webkit-transform: scale(1) translateZ(calc(50px * 0));
+          transform: scale(1) translateZ(calc(50px * 0));
+}
+div.showcase-stack div.stack-object:nth-child(2) {
+  background-image: linear-gradient(45deg, #fb6a07, #fb0104);
+  -webkit-transform: scale(0.8) translateZ(calc(50px * 1));
+          transform: scale(0.8) translateZ(calc(50px * 1));
+}
+div.showcase-stack div.stack-object:nth-child(3) {
+  background-image: linear-gradient(45deg, #fb7f07, #fb01e9);
+  -webkit-transform: scale(0.6) translateZ(calc(50px * 2));
+          transform: scale(0.6) translateZ(calc(50px * 2));
+}
+div.showcase-stack div.stack-object:nth-child(4) {
+  background-image: linear-gradient(45deg, #fb9307, #2801fb);
+  -webkit-transform: scale(0.4) translateZ(calc(50px * 3));
+          transform: scale(0.4) translateZ(calc(50px * 3));
+}
+div.showcase-stack div.stack-object:nth-child(5) {
+  background-image: linear-gradient(45deg, #fba707, #01c0fb);
+  -webkit-transform: scale(0.2) translateZ(calc(50px * 4));
+          transform: scale(0.2) translateZ(calc(50px * 4));
+}
+div.showcase-stack.bg-one {
+  -webkit-filter: drop-shadow(0px 0px 16px rgba(239, 35, 60, 0.65));
+          filter: drop-shadow(0px 0px 16px rgba(239, 35, 60, 0.65));
+}
+
+div.cube-3d-object {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+div.cube-3d-object div.cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+div.cube-3d-object div.cube-face.face {
+  border: 8px solid white;
+}
+div.cube-3d-object div.cube-face.face.left {
+  -webkit-transform: rotateY(90deg) translateZ(100px);
+          transform: rotateY(90deg) translateZ(100px);
+}
+div.cube-3d-object div.cube-face.face.right {
+  -webkit-transform: rotateY(-90deg) translateZ(100px);
+          transform: rotateY(-90deg) translateZ(100px);
+}
+div.cube-3d-object div.cube-face.face.top {
+  -webkit-transform: rotateX(90deg) translateZ(100px);
+          transform: rotateX(90deg) translateZ(100px);
+}
+div.cube-3d-object div.cube-face.face.bottom {
+  -webkit-transform: rotateX(-90deg) translateZ(100px);
+          transform: rotateX(-90deg) translateZ(100px);
+}
+div.cube-3d-object div.cube-face.face.front {
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+}
+div.cube-3d-object div.cube-face.face.back {
+  -webkit-transform: rotateY(180deg) translateZ(100px);
+          transform: rotateY(180deg) translateZ(100px);
+}
+div.cube-3d-object.cube-3d-object-rotate {
+  -webkit-animation: cube-3d-object-rotate 10s infinite linear;
+          animation: cube-3d-object-rotate 10s infinite linear;
+}
+@-webkit-keyframes cube-3d-object-rotate {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+@keyframes cube-3d-object-rotate {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+div.cube-3d-object.center {
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+}
+
+.flexbox, div.showcase div.showcase-content div.showcase-content-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flexbox.vertical, div.showcase div.showcase-content div.vertical.showcase-content-inner {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.flexbox.vertical.x-left, div.showcase div.showcase-content div.vertical.x-left.showcase-content-inner {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.flexbox.vertical.x-center, div.showcase div.showcase-content div.vertical.x-center.showcase-content-inner {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.flexbox.vertical.x-right, div.showcase div.showcase-content div.vertical.x-right.showcase-content-inner {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.flexbox.vertical.y-top, div.showcase div.showcase-content div.vertical.y-top.showcase-content-inner {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.flexbox.vertical.y-center, div.showcase div.showcase-content div.vertical.y-center.showcase-content-inner {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flexbox.vertical.y-bottom, div.showcase div.showcase-content div.vertical.y-bottom.showcase-content-inner {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.flexbox.horizontal, div.showcase div.showcase-content div.horizontal.showcase-content-inner {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.flexbox.horizontal.x-left, div.showcase div.showcase-content div.horizontal.x-left.showcase-content-inner {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.flexbox.horizontal.x-center, div.showcase div.showcase-content div.horizontal.x-center.showcase-content-inner {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flexbox.horizontal.x-right, div.showcase div.showcase-content div.horizontal.x-right.showcase-content-inner {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.flexbox.horizontal.y-top, div.showcase div.showcase-content div.horizontal.y-top.showcase-content-inner {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.flexbox.horizontal.y-center, div.showcase div.showcase-content div.horizontal.y-center.showcase-content-inner {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.flexbox.horizontal.y-bottom, div.showcase div.showcase-content div.horizontal.y-bottom.showcase-content-inner {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-blue {
+  background-color: blue;
+}

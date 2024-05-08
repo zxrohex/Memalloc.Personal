@@ -1,0 +1,279 @@
+@use 'sass:color';
+
+@import url("https://use.typekit.net/vhq2ovc.css");
+
+@function calcCenter($size, $offset) {
+	$value: calc(50% - #{$size / 2 + $offset});
+	@return $value;
+}
+
+@mixin centerAbsolute($width, $height) {
+	left: calcCenter($width, 0);
+	top: calcCenter($height, 0);
+}
+
+
+* {
+	box-sizing: border-box;
+
+	font-family: "myriad-pro", sans-serif;
+}
+
+html, body, main {
+	position: relative;
+
+	width: 100%;
+	min-height: 100vh;
+
+	margin: 0px;
+
+	background-color: rgb(10, 10, 10);
+	color: white;
+}
+
+div.showcase {
+	position: relative;
+
+	width: 100%;
+
+	&.vh-50 {
+		height: 50vh;
+	}
+
+	&.vh-100 {
+		height: 100vh;
+	}
+
+	&.vh-200 {
+		height: 200vh;
+	}
+
+	div.showcase-scene {
+		position: sticky;
+		top: 0px;
+
+		width: 100%;
+		height: 100%;
+		max-height: 100vh;
+
+		perspective: 1000px;
+
+		//transform-style: preserve-3d;
+
+	}
+
+	div.showcase-content {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+
+		width: 100%;
+		height: 100%;
+
+		div.showcase-content-inner {
+			position: relative;
+
+			width: 100%;
+			height: 100vh;
+
+			@extend .flexbox;
+		}
+
+	}
+}
+
+@mixin showcaseStack($size: 500px) {
+	position: relative;
+
+	width: $size;
+	height: $size;
+
+	perspective: 1000px;
+
+	//transform: rotateX(45deg) rotateY(45deg);
+
+	transform-style: preserve-3d;
+
+	div.stack-object {
+		position: absolute;
+
+		width: 100%;
+		height: 100%;
+
+		transform-style: preserve-3d;
+
+		border-radius: 24px;
+
+		filter: drop-shadow(0px 0px 16px rgba(25, 25, 25, 0.45));
+
+		/*&.backdrop-1 {
+			background-image: linear-gradient(45deg, #EF233C, #D80032)
+		}
+
+		&.backdrop-2 {
+			background-image: linear-gradient(45deg, #fb5607, #ffbe0b);
+		}*/
+
+		@for $i from 1 through 5 {
+			&:nth-child(#{$i}) {
+				background-image: linear-gradient(45deg, color.adjust(#fb5607, $hue: ($i - 1) * 5), color.adjust(#fbe301, $hue: ($i - 1) * -55));
+
+				transform: scale(calc(1 - (($i - 1) / 5))) translateZ(calc(50px * #{$i - 1}));
+			}
+		}
+	}
+
+	&.bg-one {
+
+		//border-image: linear-gradient(45deg, #fb5607, #ffbe0b);
+
+		//background: ;
+
+
+		filter: drop-shadow(0px 0px 16px rgba(239, 35, 60, 0.65));
+	}
+}
+
+@mixin cube($size: 400px) {
+	position: absolute;
+
+	width: $size;
+	height: $size;
+
+	transform-style: preserve-3d;
+
+	div.cube-face {
+		position: absolute;
+
+		width: $size;
+		height: $size;
+
+		transform-style: preserve-3d;
+
+		&.face {
+			border: 8px solid white;
+
+			&.left {
+				transform: rotateY(90deg) translateZ(calc($size / 2));
+			}
+
+			&.right {
+				transform: rotateY(-90deg) translateZ(calc($size / 2));
+			}
+
+			&.top {
+				transform: rotateX(90deg) translateZ(calc($size / 2));
+			}
+
+			&.bottom {
+				transform: rotateX(-90deg) translateZ(calc($size / 2));
+			}
+
+			&.front {
+				transform: translateZ(calc($size / 2));
+			}
+
+			&.back {
+				transform: rotateY(180deg) translateZ(calc($size / 2));
+			}
+		}
+	}
+
+	&.cube-3d-object-rotate {
+		animation: cube-3d-object-rotate 10s infinite linear;
+	}
+
+	@keyframes cube-3d-object-rotate {
+		0% {
+			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		}
+
+		100% {
+			transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+		}
+	}
+}
+
+div.showcase-stack {
+	@include showcaseStack();
+}
+
+div.cube-3d-object {
+	@include cube(200px);
+
+	&.center {
+		@include centerAbsolute(200px, 200px);
+	}
+}
+
+.flexbox {
+	display: flex;
+
+	&.vertical {
+		flex-direction: column;
+
+		&.x-left {
+			align-items: flex-start;
+		}
+
+		&.x-center {
+			align-items: center;
+		}
+
+		&.x-right {
+			align-items: flex-end;
+		}
+
+		&.y-top {
+			justify-content: flex-start;
+		}
+
+		&.y-center {
+			justify-content: center;
+		}
+
+		&.y-bottom {
+			justify-content: flex-end;
+		}
+	}
+
+	&.horizontal {
+		flex-direction: row;
+
+		&.x-left {
+			justify-content: flex-start;
+		}
+
+		&.x-center {
+			justify-content: center;
+		}
+
+		&.x-right {
+			justify-content: flex-end;
+		}
+
+		&.y-top {
+			align-items: flex-start;
+		}
+
+		&.y-center {
+			align-items: center;
+		}
+
+		&.y-bottom {
+			align-items: flex-end;
+		}
+	}
+}
+
+.bg-red {
+	background-color: red;
+}
+
+.bg-green {
+	background-color: green;
+}
+
+.bg-blue {
+	background-color: blue;
+}
