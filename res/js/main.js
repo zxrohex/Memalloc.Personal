@@ -7,10 +7,12 @@ jQuery.fn.extend({
 
 $(function () {
 	$(window).on("scroll", function () {
-		$(".scroll-vars").each(function () {
+		$(".showcase").each(function () {
 			var scrollProgress = $(this).scrollProgress();
 
-			$(this).css("--scroll-deg", scrollProgress +  "deg");
+			$(this).css({
+				"--scroll": scrollProgress + "px",
+			"--scroll-deg": scrollProgress + "deg" });
 		});
 	});
 });
