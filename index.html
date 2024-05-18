@@ -20,7 +20,7 @@
 		<main>
 			<div class="desktop-container">
 				<div class="desktop-shell">
-					<div class="shell-window">
+					<div class="shell-window" data-window="main">
 						<div class="window-titlebar">
 							<button class="window-menu">
 								-
@@ -42,6 +42,48 @@
 								Work in Progress <br>
 								Personal Website / Landing Page in Style of early Windows 95 Chicago (early Win 95 alpha)
 							</p>
+						</div>
+					</div>
+
+					<div class="shell-window" data-window="about">
+						<div class="window-titlebar">
+							<button class="window-menu">
+								-
+							</button>
+
+							<div class="window-menu-container">
+								<div class="window-menu-content">
+									<button class="window-menu-item" data-testrole="close">
+										Close
+									</button>
+								</div>
+							</div>
+
+							<h6 class="window-title">About</h6>
+						</div>
+
+						<div class="window-content">
+							<textarea class="notepad-textarea" readonly>
+
+							</textarea>
+						</div>
+					</div>
+
+					<div class="desktop-taskbar">
+						<div class="taskbar-item" data-window="main">
+							<img class="taskbar-icon" />
+
+							<h6 class="taskbar-title">
+								Welcome
+							</h6>
+						</div>
+
+						<div class="taskbar-item" data-window="about">
+							<img class="taskbar-icon" />
+
+							<h6 class="taskbar-title">
+								About
+							</h6>
 						</div>
 					</div>
 
